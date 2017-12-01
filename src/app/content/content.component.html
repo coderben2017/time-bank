@@ -1,0 +1,30 @@
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      Page Header
+      <small>Optional description</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+      <li class="active">Here</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content container-fluid">
+
+    <!--------------------------
+      | Your Page Content Here |
+      -------------------------->
+    <router-outlet></router-outlet>
+    <p>
+      <a routerLink="/community">go to plan management</a>
+    </p>
+    <p>
+      <a routerLink="/community/0">go to plan 0</a>
+    </p>
+  </section>
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
