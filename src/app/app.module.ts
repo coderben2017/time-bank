@@ -14,14 +14,19 @@ import { UserComponent } from './user/user.component';
 import { Page404Component } from './page404/page404.component';
 import { PlanManagementComponent } from './plan/plan-management/plan-management.component';
 import { PlanFormComponent } from './plan/plan-form/plan-form.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/community', pathMatch: 'full'},
-  {path: 'community', component: CommunityComponent, children: [
-    {path: '', component: PlanManagementComponent, outlet: 'plans'},
-    {path: ':id', component: PlanFormComponent, outlet: 'plans'}
+  {path: '', redirectTo: '/login', pathMatch: 'full'},
+  {path: 'login', component: LoginComponent},
+  {path: 'dashboard', component: DashboardComponent, children: [
+    {path: 'community', component: CommunityComponent, children: [
+      {path: 'plans', component: PlanManagementComponent},
+      {path: 'plan/:id', component: PlanFormComponent},
+    ]},
+    {path: 'user', component: UserComponent},
+    {path: '**', component: Page404Component}
   ]},
-  {path: 'user', component: UserComponent},
   {path: '**', component: Page404Component}
 ];
 
@@ -38,7 +43,8 @@ const routes: Routes = [
     UserComponent,
     Page404Component,
     PlanManagementComponent,
-    PlanFormComponent
+    PlanFormComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
