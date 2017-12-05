@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-plan-form',
@@ -7,11 +8,22 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class PlanFormComponent implements OnInit {
 
-  @Input() id: number;
-
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  cancel(): void {
+    this.goBack();
+  }
+
+  save(): void {
+    alert('保存成功');
+    this.goBack();
+  }
+
+  goBack(): void {
+    this.router.navigateByUrl('/dashboard/community/plans');
   }
 
 }

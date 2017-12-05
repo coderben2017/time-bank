@@ -1,5 +1,7 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule, Routes } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -8,13 +10,13 @@ import { SidebarLeftComponent } from './sidebar-left/sidebar-left.component';
 import { ContentComponent } from './content/content.component';
 import { FooterComponent } from './footer/footer.component';
 import { SidebarRightComponent } from './sidebar-right/sidebar-right.component';
-import { RouterModule, Routes } from '@angular/router';
 import { CommunityComponent } from './community/community.component';
 import { UserComponent } from './user/user.component';
 import { Page404Component } from './page404/page404.component';
 import { PlanManagementComponent } from './plan/plan-management/plan-management.component';
 import { PlanFormComponent } from './plan/plan-form/plan-form.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { PlanDetailComponent } from './plan/plan-detail/plan-detail.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -22,7 +24,8 @@ const routes: Routes = [
   {path: 'dashboard', component: DashboardComponent, children: [
     {path: 'community', component: CommunityComponent, children: [
       {path: 'plans', component: PlanManagementComponent},
-      {path: 'plan/:id', component: PlanFormComponent},
+      {path: 'plans/new', component: PlanFormComponent},
+      {path: 'plans/:id', component: PlanDetailComponent}
     ]},
     {path: 'user', component: UserComponent},
     {path: '**', component: Page404Component}
@@ -44,11 +47,14 @@ const routes: Routes = [
     Page404Component,
     PlanManagementComponent,
     PlanFormComponent,
-    DashboardComponent
+    DashboardComponent,
+    PlanDetailComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
