@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarRightComponent implements OnInit {
 
+  activityDate: Date; // 活动时间
+
   constructor() { }
 
   ngOnInit() {
+    this.activityDate = new Date('2017-12-24 11:30');
   }
 
 }
