@@ -7,6 +7,10 @@ export class PermissionGuard implements CanActivate, CanDeactivate<DashboardComp
 
   constructor(private router: Router) {}
 
+  /**
+   * 路由激活守卫
+   * @returns {boolean}
+   */
   canActivate(): boolean {
     if (sessionStorage.getItem('usr')) {
       return true;
@@ -15,6 +19,11 @@ export class PermissionGuard implements CanActivate, CanDeactivate<DashboardComp
     return false;
   }
 
+  /**
+   * 路由失活守卫
+   * @param {DashboardComponent} component
+   * @returns {boolean}
+   */
   canDeactivate(component: DashboardComponent): boolean {
     return window.confirm('您确定要注销登录吗？');
   }
