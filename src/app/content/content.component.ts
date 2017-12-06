@@ -3,7 +3,6 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
-import {DashboardComponent} from "../dashboard/dashboard.component";
 
 @Component({
   selector: 'app-content',
@@ -27,16 +26,16 @@ export class ContentComponent implements OnInit {
     }
 
     this.router.events
-      .filter(event => event instanceof NavigationEnd)
-      .map(() => this.activatedRoute)
+      .filter(event => event instanceof NavigationEnd) // 过滤路由导航结束事件
+      .map(() => this.activatedRoute)                  // 转换为activatedRoute对象继续在stream中执行
       .map(route => {
-        while (route.firstChild) {
+        while (route.firstChild) {                     // 深度遍历第一个子路由，替换当前路由
           route = route.firstChild;
         }
         return route;
       })
-      .filter(route => route.outlet === 'primary')
-      .mergeMap(route => route.data)
+      .filter(route => route.outlet === 'primary')     // 过滤经过primary出口（默认的<router-outlet></router-outlet>）的路由
+      .mergeMap(route => route.data)                   // 将该路由中的data对象并入stream
       .subscribe((data) => {
         this.curLocation = data['location'];
       });
