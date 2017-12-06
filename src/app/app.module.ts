@@ -25,11 +25,15 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'dashboard', component: DashboardComponent, children: [
     {path: 'community', component: CommunityComponent, children: [
-      {path: 'plans', component: PlanManagementComponent},
+      {path: 'plans', component: PlanManagementComponent, data: {
+        location: '任务广场'
+      }},
       {path: 'plans/new', component: PlanFormComponent},
       {path: 'plans/:id', component: PlanDetailComponent}
     ]},
-    {path: 'user', component: UserComponent},
+    {path: 'user', component: UserComponent, data: {
+      location: '个人'
+    }},
     {path: '**', component: Page404Component}
   ], canActivate: [PermissionGuard], canDeactivate: [PermissionGuard]},
   {path: '**', component: Page404Component}
