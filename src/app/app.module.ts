@@ -18,6 +18,8 @@ import { PlanFormComponent } from './plan/plan-form/plan-form.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PlanDetailComponent } from './plan/plan-detail/plan-detail.component';
 
+import { PermissionGuard } from './guard/permission.guard';
+
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
@@ -29,7 +31,7 @@ const routes: Routes = [
     ]},
     {path: 'user', component: UserComponent},
     {path: '**', component: Page404Component}
-  ]},
+  ], canActivate: [PermissionGuard], canDeactivate: [PermissionGuard]},
   {path: '**', component: Page404Component}
 ];
 
@@ -56,7 +58,7 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [PermissionGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

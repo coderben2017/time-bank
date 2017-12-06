@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
   login(): void {
     if (this.loginFormGroup.value.username === 'admin' && this.loginFormGroup.value.password === 'admin') {
       this.router.navigateByUrl('/dashboard/community/plans');
+      window.sessionStorage.setItem('usr', this.loginFormGroup.value.username);
       window.location.reload();
     } else {
       alert('账号或密码错误');
