@@ -1,3 +1,51 @@
-<p>
-  user works!
+<h3>基本信息</h3>
+<p class="row">
+  <span class="col-xs-4">昵称</span>
+  <span class="col-xs-5">CoderBen</span>
 </p>
+<p class="row">
+  <span class="col-xs-4">真实姓名</span>
+  <span class="col-xs-5">金奔</span>
+</p>
+<p class="row">
+  <span class="col-xs-4">信用分</span>
+  <span class="col-xs-5">193</span>
+</p>
+<p class="row">
+  <span class="col-xs-4">居住地</span>
+  <span class="col-xs-5">山大学15宿舍楼</span>
+</p>
+<p class="row">
+  <span class="col-xs-4">联系方式</span>
+  <span class="col-xs-5">13834561234</span>
+</p>
+<p class="row">
+  <span class="col-xs-4">身份证信息</span>
+  <span class="col-xs-5">
+    <button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#modal-default">
+      查看
+    </button>
+  </span>
+</p>
+
+<div class="modal fade" id="modal-default">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">身份证信息</h4>
+      </div>
+      <div class="modal-body">
+        <p><img src="/assets/img/card.jpeg" style="max-width: 100%"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
