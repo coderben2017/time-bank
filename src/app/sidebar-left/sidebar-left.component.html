@@ -30,10 +30,12 @@
     <ul class="sidebar-menu" data-widget="tree">
       <li class="header">Navigation</li>
       <!-- Optionally, you can add icons to the links -->
-      <li class="active">
-        <a [routerLink]="'community/plans'"><i class="fa fa-link"></i><span>社区</span></a>
+      <li [class.active]="activePart === 1">
+        <a [routerLink]="'community/plans'" (click)="changeActivePart(1)"><i class="fa fa-link"></i><span>社区</span></a>
       </li>
-      <li><a [routerLink]="'user'"><i class="fa fa-link"></i> <span>个人</span></a></li>
+      <li [class.active]="activePart === 2">
+        <a [routerLink]="'user'" (click)="changeActivePart(2)"><i class="fa fa-link"></i> <span>个人</span></a>
+      </li>
       <li class="treeview">
         <a href="javascript:;"><i class="fa fa-link"></i> <span>其他</span>
           <span class="pull-right-container">

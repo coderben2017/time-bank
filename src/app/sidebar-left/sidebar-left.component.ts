@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarLeftComponent implements OnInit {
 
+  activePart: number;
+
   constructor() { }
 
   ngOnInit() {
+    this.activePart = 1;
+  }
+
+  changeActivePart(index: number): void {
+    this.activePart = index;
   }
 
 }
