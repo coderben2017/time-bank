@@ -1,16 +1,16 @@
 <div class="container text-center col-sm-10 col-sm-offset-1">
-  <h4>6号下午5点航天幼儿园求帮忙接孩子放学</h4>
+  <h4>{{plan.name}}</h4>
   <p>
-    时间：2017/12/6 17:00
+    时间：{{time | date: 'yyyy/MM/dd HH:mm'}}
   </p>
   <p>
-    地点：航天幼儿园（科学路64号）
+    地点：{{plan.place}}
   </p>
   <p>
-    具体要求：5点准时到，到了直接联系孩子的老师。孩子比较胆小，所以希望能送到家门口，交给他奶奶。
+    具体要求：{{plan.detail}}
   </p>
   <p class="bg-yellow">
-    报酬：5个时间币
+    报酬：{{plan.salary}}个时间币
   </p>
 </div>
 <div class="box-footer col-sm-10 col-sm-offset-1" style="background: none">

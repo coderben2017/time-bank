@@ -19,6 +19,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PlanDetailComponent } from './plan/plan-detail/plan-detail.component';
 
 import { PermissionGuard } from './guard/permission.guard';
+import { PlanService } from './services/plan.service';
+import { UserService } from './services/user.service';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -62,7 +64,7 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [PermissionGuard],
+  providers: [PermissionGuard, PlanService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -5,14 +5,9 @@
   <!-- /.box-header -->
   <div class="box-body">
     <table class="table table-bordered">
-      <tr>
+      <tr *ngFor="let plan of plans">
         <td>
-          <a [routerLink]="1">6号下午5点航天幼儿园求帮忙接孩子放学</a>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <a href="javascript:;">18号上午9点中科院小区求帮忙搬家</a>
+          <a [routerLink]="plan.id">{{plan.name}}</a>
         </td>
       </tr>
     </table>

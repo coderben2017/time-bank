@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Plan, PlanService } from '../../services/plan.service';
 
 @Component({
   selector: 'app-plan-management',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlanManagementComponent implements OnInit {
 
-  constructor() { }
+  plans: Plan[]; // 广场上的任务
+
+  constructor(
+    private planService: PlanService
+  ) { }
 
   ngOnInit() {
+    this.plans = this.planService.getAllPlans();
   }
 
 }

@@ -1,23 +1,23 @@
 <h3>基本信息</h3>
 <p class="row">
   <span class="col-xs-4">昵称</span>
-  <span class="col-xs-5">CoderBen</span>
+  <span class="col-xs-5">{{user.name}}</span>
 </p>
 <p class="row">
   <span class="col-xs-4">真实姓名</span>
-  <span class="col-xs-5">金奔</span>
+  <span class="col-xs-5">{{user.trueName}}</span>
 </p>
 <p class="row">
   <span class="col-xs-4">信用分</span>
-  <span class="col-xs-5 text-primary text-bold">193</span>
+  <span class="col-xs-5 text-primary text-bold">{{user.creditValue}}</span>
 </p>
 <p class="row">
   <span class="col-xs-4">居住地</span>
-  <span class="col-xs-5">山大学15宿舍楼</span>
+  <span class="col-xs-5">{{user.domicile}}</span>
 </p>
 <p class="row">
   <span class="col-xs-4">联系方式</span>
-  <span class="col-xs-5">13834561234</span>
+  <span class="col-xs-5">{{user.phoneNumber}}</span>
 </p>
 <p class="row">
   <span class="col-xs-4">身份证信息</span>
@@ -38,7 +38,7 @@
         <h4 class="modal-title">身份证信息</h4>
       </div>
       <div class="modal-body">
-        <p><img src="/assets/img/card.jpeg" style="max-width: 100%"></p>
+        <p><img src="/assets/img/card.jpeg" style="max-width: 100%"></p><!-- 身份证信息 -->
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">确定</button>

@@ -11,7 +11,7 @@ import 'rxjs/add/operator/mergeMap';
 })
 export class ContentComponent implements OnInit {
 
-  curLocation: string;
+  curLocation: string; // 内容区的当前位置提示
 
   constructor(
     private router: Router,
@@ -25,6 +25,7 @@ export class ContentComponent implements OnInit {
       case 'UserComponent': this.curLocation = '个人'; break;
     }
 
+    // 订阅路由变化，更新curLocation
     this.router.events
       .filter(event => event instanceof NavigationEnd) // 过滤路由导航结束事件
       .map(() => this.activatedRoute)                  // 转换为activatedRoute对象（router状态树的根节点）继续在stream中执行
