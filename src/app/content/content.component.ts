@@ -27,7 +27,7 @@ export class ContentComponent implements OnInit {
 
     this.router.events
       .filter(event => event instanceof NavigationEnd) // 过滤路由导航结束事件
-      .map(() => this.activatedRoute)                  // 转换为activatedRoute对象继续在stream中执行
+      .map(() => this.activatedRoute)                  // 转换为activatedRoute对象（router状态树的根节点）继续在stream中执行
       .map(route => {
         while (route.firstChild) {                     // 深度遍历第一个子路由，替换当前路由
           route = route.firstChild;
@@ -35,7 +35,7 @@ export class ContentComponent implements OnInit {
         return route;
       })
       .filter(route => route.outlet === 'primary')     // 过滤经过primary出口（默认的<router-outlet></router-outlet>）的路由
-      .mergeMap(route => route.data)                   // 将该路由中的data对象并入stream
+      .mergeMap(route => route.data)                   // 将路由中的data对象并入stream（主干流）
       .subscribe((data) => {
         this.curLocation = data['location'];
       });
