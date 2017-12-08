@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class UserService {
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
-  getUser(id: number): User {
-    return new User(1, 'CoderBen', '金奔', 193, '山大学15宿舍楼', 13567898765, null);
+  getUser(id: number): Observable<User> {
+    return this.httpClient.get(`/api/user/${id}`);
   }
 
 }
