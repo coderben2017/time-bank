@@ -22,6 +22,7 @@ import { PlanDetailComponent } from './plan/plan-detail/plan-detail.component';
 import { PermissionGuard } from './guard/permission.guard';
 import { PlanService } from './services/plan.service';
 import { UserService } from './services/user.service';
+import {LoginService} from "./services/login.service";
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -66,7 +67,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [PermissionGuard, PlanService, UserService],
+  providers: [PermissionGuard, LoginService, PlanService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
