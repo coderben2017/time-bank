@@ -18,11 +18,16 @@ export class PlanDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.plan = new Plan(0, '', 0, '', 0, '');
+    this.time = null;
+
     const url = window.location.href;
     const x = url.search('plans');
     const id = Number(url.slice(x + 6));
-    this.plan = this.planService.getPlan(id);
-    this.time = new Date(this.plan.timeStamp);
+    this.planService.getPlan(id).subscribe(res => {
+      this.plan = res;
+      this.time = new Date(this.plan.timeStamp);
+    });
   }
 
   goBack(): void {

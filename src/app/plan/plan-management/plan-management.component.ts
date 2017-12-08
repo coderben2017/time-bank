@@ -15,7 +15,9 @@ export class PlanManagementComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.plans = this.planService.getAllPlans();
+    this.planService.getAllPlans().subscribe(res => {
+      this.plans = res;
+    });
   }
 
 }
