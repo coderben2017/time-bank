@@ -24,7 +24,9 @@ export class PlanFormComponent implements OnInit {
 
   save(): void {
     const text: string = $('#inputContent3').val();
-    this.planService.addPlan(text).subscribe(res => {
+    const timeStr = $('#inputContent4').val();
+    const timeStamp: number = new Date(timeStr.substr(0, 10) + ' ' + timeStr.substr(11)).getTime();
+    this.planService.addPlan(text, timeStamp).subscribe(res => {
       if (res) {
         alert('发布成功');
         this.goBack();
