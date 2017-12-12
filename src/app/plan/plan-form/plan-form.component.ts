@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PlanService } from '../../services/plan.service';
+import $ from 'jquery';
 
 @Component({
   selector: 'app-plan-form',
@@ -8,7 +10,10 @@ import { Router } from '@angular/router';
 })
 export class PlanFormComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private planService: PlanService
+  ) { }
 
   ngOnInit() {
   }
@@ -18,8 +23,15 @@ export class PlanFormComponent implements OnInit {
   }
 
   save(): void {
-    alert('保存成功');
-    this.goBack();
+    const text: string = $('#inputContent3').val();
+    this.planService.addPlan(text).subscribe(res => {
+      if (res) {
+        alert('发布成功');
+        this.goBack();
+      } else {
+        alert('格式错误，发布失败');
+      }
+    });
   }
 
   goBack(): void {

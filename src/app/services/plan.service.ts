@@ -15,6 +15,12 @@ export class PlanService {
     return this.httpClient.get(`/api/plan/${id}`);
   }
 
+  addPlan(text: string): Observable<boolean> {
+    return this.httpClient.post('/api/plan/add', {
+      text: text
+    });
+  }
+
 }
 
 

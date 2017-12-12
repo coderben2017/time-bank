@@ -20,9 +20,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PlanDetailComponent } from './plan/plan-detail/plan-detail.component';
 
 import { PermissionGuard } from './guard/permission.guard';
+import { LoginService } from './services/login.service';
 import { PlanService } from './services/plan.service';
 import { UserService } from './services/user.service';
-import {LoginService} from "./services/login.service";
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
