@@ -67,7 +67,12 @@ const routes: Routes = [
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [PermissionGuard, LoginService, PlanService, UserService],
+  providers: [
+    PermissionGuard,
+    LoginService,
+    PlanService,
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
