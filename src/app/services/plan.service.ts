@@ -33,6 +33,6 @@ export class Plan {
     public timeStamp: number,
     public place: string,
     public salary: number,
-    public detail: string
+    public phoneNumber: number
   ) {}
 }
