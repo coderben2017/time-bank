@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Plan, PlanService } from '../../../../services/plan.service';
-import {getPlan} from "../../../../services/mock/plan";
+import { Plan, PlanService } from '../../services/plan.service';
+import { getPlan } from '../../mock/plan';
 
 @Component({
   selector: 'app-plan-detail',

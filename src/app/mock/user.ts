@@ -1,4 +1,4 @@
-import { User } from '../user.service';
+import { User } from '../services/user.service';
 
 
 export function getUser(): User {

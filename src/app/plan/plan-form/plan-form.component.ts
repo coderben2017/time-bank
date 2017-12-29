@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { PlanService } from '../../../../services/plan.service';
 import $ from 'jquery';
+import { PlanService } from '../../services/plan.service';
 
 @Component({
   selector: 'app-plan-form',

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Plan, PlanService } from '../../../../services/plan.service';
-import { getAllPlans } from '../../../../services/mock/plan';
+import { Plan, PlanService } from '../../services/plan.service';
+import { getAllPlans } from '../../mock/plan';
 
 @Component({
   selector: 'app-plan-management',

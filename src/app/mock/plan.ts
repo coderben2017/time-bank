@@ -1,4 +1,4 @@
-import { Plan } from '../plan.service';
+import { Plan } from '../services/plan.service';
 
 const plans: Plan[] = [
   new Plan(1, '6号下午5点航天幼儿园求帮忙接孩子放学', 1512550800000, '航天幼儿园（科学路64号）',

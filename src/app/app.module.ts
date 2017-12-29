@@ -1,31 +1,32 @@
+///<reference path="page404/page404.component.ts"/>
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { HeaderComponent } from './dashboard/header/header.component';
-import { SidebarLeftComponent } from './dashboard/sidebar-left/sidebar-left.component';
-import { ContentComponent } from './dashboard/content/content.component';
-import { FooterComponent } from './dashboard/footer/footer.component';
-import { SidebarRightComponent } from './dashboard/sidebar-right/sidebar-right.component';
-import { CommunityComponent } from './dashboard/content/community/community.component';
-import { UserComponent } from './dashboard/content/user/user.component';
-import { Page404Component } from './page404/page404.component';
-import { PlanManagementComponent } from './dashboard/content/community/plan-management/plan-management.component';
-import { PlanFormComponent } from './dashboard/content/community/plan-form/plan-form.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { PlanDetailComponent } from './dashboard/content/community/plan-detail/plan-detail.component';
+import {LoginComponent} from "./login/login.component";
+import {DashboardComponent} from "./dashboard/dashboard.component";
+import {CommunityComponent} from "./community/community.component";
+import {PlanManagementComponent} from "./plan/plan-management/plan-management.component";
+import {PlanFormComponent} from "./plan/plan-form/plan-form.component";
+import {PlanDetailComponent} from "./plan/plan-detail/plan-detail.component";
+import {UserComponent} from "./user/user.component";
+import {OtherComponent} from "./other/other.component";
+import {FeedbackComponent} from "./feedback/feedback.component";
+import {AboutComponent} from "./about/about.component";
+import {Page404Component} from "./page404/page404.component";
+import {AppComponent} from "./app.component";
+import {HeaderComponent} from "./header/header.component";
+import {ContentComponent} from "./content/content.component";
+import {FooterComponent} from "./footer/footer.component";
+import {SidebarLeftComponent} from "./sidebar-left/sidebar-left.component";
+import {SidebarRightComponent} from "./sidebar-right/sidebar-right.component";
+import {PermissionGuard} from "./guard/permission.guard";
+import {LoginService} from "./services/login.service";
+import {PlanService} from "./services/plan.service";
+import {UserService} from "./services/user.service";
 
-import { PermissionGuard } from './guard/permission.guard';
-import { LoginService } from './services/login.service';
-import { PlanService } from './services/plan.service';
-import { UserService } from './services/user.service';
-import { OtherComponent } from './dashboard/content/other/other.component';
-import { FeedbackComponent } from './dashboard/content/other/feedback/feedback.component';
-import { AboutComponent } from './dashboard/content/other/about/about.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
