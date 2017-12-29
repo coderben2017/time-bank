@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { PlanService } from '../../services/plan.service';
+import { PlanService } from '../../../../services/plan.service';
 import $ from 'jquery';
 
 @Component({

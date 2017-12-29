@@ -37,14 +37,14 @@
         <a [routerLink]="'user'" (click)="changeActivePart(2)"><i class="fa fa-link"></i> <span>个人</span></a>
       </li>
       <li class="treeview">
-        <a href="javascript:;"><i class="fa fa-link"></i> <span>其他</span>
+        <a [routerLink]="'other/feedback'"><i class="fa fa-link"></i> <span>其他</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="javascript:;">意见反馈</a></li>
-          <li><a href="javascript:;">联系我们</a></li>
+          <li><a [routerLink]="'other/feedback'">意见反馈</a></li>
+          <li><a [routerLink]="'other/about'">关于我们</a></li>
         </ul>
       </li>
     </ul>
