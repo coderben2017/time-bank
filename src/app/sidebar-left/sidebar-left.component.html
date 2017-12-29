@@ -36,15 +36,15 @@
       <li [class.active]="activePart === 2">
         <a [routerLink]="'user'" (click)="changeActivePart(2)"><i class="fa fa-link"></i> <span>个人</span></a>
       </li>
-      <li class="treeview">
-        <a [routerLink]="'other/feedback'"><i class="fa fa-link"></i> <span>其他</span>
+      <li class="treeview" [class.active]="activePart === 1">
+        <a [routerLink]="'other/feedback'" (click)="changeActivePart(3)"><i class="fa fa-link"></i> <span>其他</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a [routerLink]="'other/feedback'">意见反馈</a></li>
-          <li><a [routerLink]="'other/about'">关于我们</a></li>
+          <li><a [routerLink]="'other/feedback'"  (click)="changeActivePart(3)">意见反馈</a></li>
+          <li><a [routerLink]="'other/about'" (click)="changeActivePart(3)">关于我们</a></li>
         </ul>
       </li>
     </ul>
