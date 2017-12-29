@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Plan, PlanService } from '../../services/plan.service';
+import {getPlan} from "../../services/mock/plan";
 
 @Component({
   selector: 'app-plan-detail',
@@ -24,10 +25,12 @@ export class PlanDetailComponent implements OnInit {
     const url = window.location.href;
     const x = url.search('plans');
     const id = Number(url.slice(x + 6));
-    this.planService.getPlan(id).subscribe(res => {
-      this.plan = res;
-      this.time = new Date(this.plan.timeStamp);
-    });
+    // this.planService.getPlan(id).subscribe(res => {
+    //   this.plan = res;
+    //   this.time = new Date(this.plan.timeStamp);
+    // });
+    this.plan = getPlan(id);
+    this.time = new Date(this.plan.timeStamp);
   }
 
   goBack(): void {

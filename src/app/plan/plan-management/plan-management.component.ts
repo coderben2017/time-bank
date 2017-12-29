@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Plan, PlanService } from '../../services/plan.service';
+import { getAllPlans } from '../../services/mock/plan';
 
 @Component({
   selector: 'app-plan-management',
@@ -15,9 +16,10 @@ export class PlanManagementComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.planService.getAllPlans().subscribe(res => {
-      this.plans = res;
-    });
+    // this.planService.getAllPlans().subscribe(res => {
+    //   this.plans = res;
+    // });
+    this.plans = getAllPlans();
   }
 
 }
