@@ -1,31 +1,30 @@
-///<reference path="page404/page404.component.ts"/>
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-import {LoginComponent} from "./login/login.component";
-import {DashboardComponent} from "./dashboard/dashboard.component";
-import {CommunityComponent} from "./community/community.component";
-import {PlanManagementComponent} from "./plan/plan-management/plan-management.component";
-import {PlanFormComponent} from "./plan/plan-form/plan-form.component";
-import {PlanDetailComponent} from "./plan/plan-detail/plan-detail.component";
-import {UserComponent} from "./user/user.component";
-import {OtherComponent} from "./other/other.component";
-import {FeedbackComponent} from "./feedback/feedback.component";
-import {AboutComponent} from "./about/about.component";
-import {Page404Component} from "./page404/page404.component";
-import {AppComponent} from "./app.component";
-import {HeaderComponent} from "./header/header.component";
-import {ContentComponent} from "./content/content.component";
-import {FooterComponent} from "./footer/footer.component";
-import {SidebarLeftComponent} from "./sidebar-left/sidebar-left.component";
-import {SidebarRightComponent} from "./sidebar-right/sidebar-right.component";
-import {PermissionGuard} from "./guard/permission.guard";
-import {LoginService} from "./services/login.service";
-import {PlanService} from "./services/plan.service";
-import {UserService} from "./services/user.service";
+import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { CommunityComponent } from './community/community.component';
+import { PlanManagementComponent } from './plan/plan-management/plan-management.component';
+import { PlanFormComponent } from './plan/plan-form/plan-form.component';
+import { PlanDetailComponent } from './plan/plan-detail/plan-detail.component';
+import { UserComponent } from './user/user.component';
+import { OtherComponent } from './other/other.component';
+import { FeedbackComponent } from './feedback/feedback.component';
+import { AboutComponent } from './about/about.component';
+import { Page404Component } from './page404/page404.component';
+import { HeaderComponent } from './header/header.component';
+import { ContentComponent } from './content/content.component';
+import { FooterComponent } from './footer/footer.component';
+import { SidebarLeftComponent } from './sidebar-left/sidebar-left.component';
+import { SidebarRightComponent } from './sidebar-right/sidebar-right.component';
+import { PermissionGuard } from './guard/permission.guard';
+import { LoginService } from './services/login.service';
+import { PlanService } from './services/plan.service';
+import { UserService } from './services/user.service';
 
 
 const routes: Routes = [
