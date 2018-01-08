@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
    */
   login(): void {
     this.loginService.login(this.loginFormGroup.value.username, this.loginFormGroup.value.password).subscribe(res => {
-      if (res) {
+      if (res['status']) {
         this.router.navigateByUrl('/dashboard/community/plans');
         window.sessionStorage.setItem('usr', this.loginFormGroup.value.username);
         window.location.reload();
