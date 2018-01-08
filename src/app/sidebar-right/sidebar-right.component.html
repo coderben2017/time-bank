@@ -10,14 +10,14 @@
     <div class="tab-pane active" id="control-sidebar-home-tab">
       <h3 class="control-sidebar-heading">近期活动</h3>
       <ul class="control-sidebar-menu">
-        <li>
+        <li *ngFor="let activity of activities">
           <a href="javascript:;">
             <i class="menu-icon fa fa-birthday-cake bg-red"></i>
 
             <div class="menu-info">
-              <h4 class="control-sidebar-subheading">许云云老师生日</h4>
+              <h4 class="control-sidebar-subheading">{{activity.name}}</h4>
 
-              <p>{{activityDate | date: 'yyyy/MM/dd HH:mm'}}</p>
+              <p>{{activity.timeStamp | date: 'yyyy/MM/dd HH:mm'}}</p>
             </div>
           </a>
         </li>
@@ -26,17 +26,17 @@
 
       <h3 class="control-sidebar-heading">任务进展</h3>
       <ul class="control-sidebar-menu">
-        <li>
+        <li *ngFor="let task of tasks">
           <a href="javascript:;">
             <h4 class="control-sidebar-subheading">
-              带孩子踢球10次
+              {{task.content}}
               <span class="pull-right-container">
-                    <span class="label label-danger pull-right">70%</span>
+                    <span class="label label-danger pull-right">{{task.completeDegree + '%'}}</span>
                   </span>
             </h4>
 
             <div class="progress progress-xxs">
-              <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
+              <div class="progress-bar progress-bar-danger" style="width: 50%"></div>
             </div>
           </a>
         </li>

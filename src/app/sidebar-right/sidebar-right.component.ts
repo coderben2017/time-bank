@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Activity, ActivityService } from '../services/activity.service';
+import { Task, TaskService } from '../services/task.service';
 
 @Component({
   selector: 'app-sidebar-right',
@@ -7,12 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarRightComponent implements OnInit {
 
-  activityDate: Date; // 活动时间
+  activities: Activity[];
+  tasks: Task[];
 
-  constructor() { }
+  constructor(private activityService: ActivityService, private taskService: TaskService) { }
 
   ngOnInit() {
-    this.activityDate = new Date('2017-12-24 11:30');
+    this.activities = [];
+    this.tasks = [];
+
+    const userId: number = sessionStorage.getItem('usr') === 'admin' ? 1 : 0;
+
+    this.activityService.getActivities().subscribe(res => {
+      this.activities = res;
+    });
+
+    this.taskService.getTasks(userId).subscribe(res => {
+      this.tasks = res;
+    });
   }
 
 }

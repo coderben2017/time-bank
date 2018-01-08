@@ -26,6 +26,7 @@ import { UserService } from './services/user.service';
 import { MessageService } from './services/message.service';
 import {TaskService} from "./services/task.service";
 import {UserInfoService} from "./services/user-info.service";
+import {ActivityService} from "./services/activity.service";
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -77,7 +78,8 @@ const routes: Routes = [
     UserService,
     MessageService,
     TaskService,
-    UserInfoService
+    UserInfoService,
+    ActivityService
   ],
   bootstrap: [AppComponent]
 })
