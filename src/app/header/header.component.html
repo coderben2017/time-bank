@@ -22,16 +22,16 @@
           <!-- Menu toggle button -->
           <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
             <i class="fa fa-envelope-o"></i>
-            <span class="label label-success">4</span>
+            <span class="label label-success">{{messages.length}}</span>
           </a>
           <ul class="dropdown-menu">
-            <li class="header">您有 4 条消息</li>
+            <li class="header">您有 {{messages.length}} 条消息</li>
             <li>
               <!-- inner menu: contains the messages -->
               <ul class="menu">
 
                 <!-- start message -->
-                <li>
+                <li *ngFor="let message of messages">
                   <a href="javascript:;">
                     <div class="pull-left">
                       <!-- User Image -->
@@ -39,11 +39,11 @@
                     </div>
                     <!-- Message title and timestamp -->
                     <h4>
-                      技术团队
-                      <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                      {{message.source}}
+                      <small><i class="fa fa-clock-o"></i> {{timeDifference}} mins</small>
                     </h4>
                     <!-- The message -->
-                    <p>令人期待的1.0版本将在今晚推出!</p>
+                    <p>{{message.content}}</p>
                   </a>
                 </li>
                 <!-- end message -->
@@ -61,16 +61,16 @@
           <!-- Menu toggle button -->
           <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
             <i class="fa fa-bell-o"></i>
-            <span class="label label-warning">1</span>
+            <span class="label label-warning">{{notices.length}}</span>
           </a>
           <ul class="dropdown-menu">
-            <li class="header">您有 1 条提醒</li>
+            <li class="header">您有 {{notices.length}} 条提醒</li>
             <li>
               <!-- Inner Menu: contains the notifications -->
               <ul class="menu">
-                <li><!-- start notification -->
+                <li *ngFor="let notice of notices"><!-- start notification -->
                   <a href="javascript:;">
-                    <i class="fa fa-users text-aqua"></i> 您接下的任务"6号上午9点求帮忙..."需要在明天完成
+                    <i class="fa fa-users text-aqua"></i> 您接受的任务"{{notice.content}}"快要到时间啦
                   </a>
                 </li>
                 <!-- end notification -->
@@ -85,26 +85,26 @@
           <!-- Menu Toggle Button -->
           <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
             <i class="fa fa-flag-o"></i>
-            <span class="label label-danger">3</span>
+            <span class="label label-danger">{{tasks.length}}</span>
           </a>
           <ul class="dropdown-menu">
-            <li class="header">您还有 3 个任务</li>
+            <li class="header">您还有 {{tasks.length}} 个任务</li>
             <li>
               <!-- Inner menu: contains the tasks -->
               <ul class="menu">
-                <li><!-- Task item -->
+                <li *ngFor="let task of tasks"><!-- Task item -->
                   <a href="javascript:;">
                     <!-- Task title and progress text -->
                     <h3>
-                      11-14号航天幼儿园求帮接4天孩子
-                      <small class="pull-right">20%</small>
+                      {{task.content}}
+                      <small class="pull-right">{{task.completeDegree + '%'}}</small>
                     </h3>
                     <!-- The progress bar -->
                     <div class="progress xs">
                       <!-- Change the css width attribute to simulate progress -->
-                      <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar"
-                           aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                        <span class="sr-only">20% Complete</span>
+                      <div class="progress-bar progress-bar-aqua" style="width: {{task.completeDegree}}%" role="progressbar"
+                           aria-valuemin="0" aria-valuemax="100">
+                        <span class="sr-only">{{task.completeDegree + '% Complete'}}</span>
                       </div>
                     </div>
                   </a>
@@ -132,8 +132,8 @@
             <li class="user-header">
               <img src="/assets/img/photo.png" class="img-circle" alt="User Image">
               <p>
-                CoderBen - 前端工程师
-                <small>2017年11月加入</small>
+                {{userInfo.name}} - {{userInfo.autograph}}
+                <small>{{year}}年{{month}}月加入</small>
               </p>
             </li>
             <!-- Menu Body -->

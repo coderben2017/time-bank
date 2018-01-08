@@ -23,6 +23,9 @@ import { PermissionGuard } from './guard/permission.guard';
 import { LoginService } from './services/login.service';
 import { PlanService } from './services/plan.service';
 import { UserService } from './services/user.service';
+import { MessageService } from './services/message.service';
+import {TaskService} from "./services/task.service";
+import {UserInfoService} from "./services/user-info.service";
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -71,7 +74,10 @@ const routes: Routes = [
     PermissionGuard,
     LoginService,
     PlanService,
-    UserService
+    UserService,
+    MessageService,
+    TaskService,
+    UserInfoService
   ],
   bootstrap: [AppComponent]
 })
