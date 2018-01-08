@@ -15,7 +15,7 @@ export class PlanService {
     return this.httpClient.get(`/api/plan/${id}`);
   }
 
-  addPlan(text: string, timeStamp: number): Observable<boolean> {
+  addPlan(text: string, timeStamp: number): Observable<any> {
     return this.httpClient.post('/api/plan/add', {
       text: text,
       timeStamp: timeStamp
@@ -33,6 +33,6 @@ export class Plan {
     public timeStamp: number,
     public place: string,
     public salary: number,
-    public detail: string
+    public phoneNumber: number
   ) {}
 }

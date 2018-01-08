@@ -18,7 +18,7 @@ export class PlanDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.plan = new Plan(0, '', 0, '', 0, '');
+    this.plan = new Plan(0, '', 0, '', 0, 0);
     this.time = null;
 
     const url = window.location.href;

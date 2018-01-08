@@ -7,7 +7,11 @@ export class UserService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getUser(id: number): Observable<User> {
+  getUser(): Observable<User> {
+    let id = 0;
+    if (sessionStorage.usr) {
+      id = 1;
+    }
     return this.httpClient.get(`/api/user/${id}`);
   }
 
