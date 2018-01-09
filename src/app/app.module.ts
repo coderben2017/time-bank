@@ -47,8 +47,12 @@ const routes: Routes = [
       location: '个人'
     }},
     {path: 'other', component: OtherComponent, children: [
-      {path: 'feedback', component: FeedbackComponent},
-      {path: 'about', component: AboutComponent}
+      {path: 'feedback', component: FeedbackComponent, data: {
+        location: '反馈建议'
+      }},
+      {path: 'about', component: AboutComponent, data: {
+        location: '关于我们'
+      }}
     ]},
     {path: '**', component: Page404Component}
   ], canActivate: [PermissionGuard], canDeactivate: [PermissionGuard]},
