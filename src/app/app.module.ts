@@ -7,26 +7,30 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { SidebarLeftComponent } from './sidebar-left/sidebar-left.component';
+import { SidebarRightComponent } from './sidebar-right/sidebar-right.component';
 import { ContentComponent } from './content/content.component';
 import { FooterComponent } from './footer/footer.component';
-import { SidebarRightComponent } from './sidebar-right/sidebar-right.component';
 import { CommunityComponent } from './community/community.component';
 import { UserComponent } from './user/user.component';
-import { Page404Component } from './page404/page404.component';
-import { PlanManagementComponent } from './plan/plan-management/plan-management.component';
 import { PlanFormComponent } from './plan/plan-form/plan-form.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { PlanManagementComponent } from './plan/plan-management/plan-management.component';
 import { PlanDetailComponent } from './plan/plan-detail/plan-detail.component';
+import { OtherComponent } from './other/other.component';
+import { FeedbackComponent } from './feedback/feedback.component';
+import { AboutComponent } from './about/about.component';
+import { Page404Component } from './page404/page404.component';
 
 import { PermissionGuard } from './guard/permission.guard';
 import { LoginService } from './services/login.service';
 import { PlanService } from './services/plan.service';
 import { UserService } from './services/user.service';
 import { MessageService } from './services/message.service';
-import {TaskService} from "./services/task.service";
-import {UserInfoService} from "./services/user-info.service";
-import {ActivityService} from "./services/activity.service";
+import { TaskService } from './services/task.service';
+import { UserInfoService } from './services/user-info.service';
+import { ActivityService } from './services/activity.service';
+
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -42,6 +46,10 @@ const routes: Routes = [
     {path: 'user', component: UserComponent, data: {
       location: '个人'
     }},
+    {path: 'other', component: OtherComponent, children: [
+      {path: 'feedback', component: FeedbackComponent},
+      {path: 'about', component: AboutComponent}
+    ]},
     {path: '**', component: Page404Component}
   ], canActivate: [PermissionGuard], canDeactivate: [PermissionGuard]},
   {path: '**', component: Page404Component}
@@ -51,6 +59,7 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     LoginComponent,
+    DashboardComponent,
     HeaderComponent,
     ContentComponent,
     FooterComponent,
@@ -58,11 +67,13 @@ const routes: Routes = [
     SidebarRightComponent,
     CommunityComponent,
     UserComponent,
-    Page404Component,
     PlanManagementComponent,
+    PlanDetailComponent,
     PlanFormComponent,
-    DashboardComponent,
-    PlanDetailComponent
+    FeedbackComponent,
+    AboutComponent,
+    OtherComponent,
+    Page404Component,
   ],
   imports: [
     BrowserModule,
