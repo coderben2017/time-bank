@@ -40,7 +40,7 @@
                     <!-- Message title and timestamp -->
                     <h4>
                       {{message.source}}
-                      <small><i class="fa fa-clock-o"></i> {{timeDifference}} mins</small>
+                      <small><i class="fa fa-clock-o"></i> {{message.timeStamp | date: 'yyyy/M/d HH:mm'}} </small>
                     </h4>
                     <!-- The message -->
                     <p>{{message.content}}</p>

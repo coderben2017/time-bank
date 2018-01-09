@@ -11,7 +11,6 @@ import { UserInfo, UserInfoService } from '../services/user-info.service';
 export class HeaderComponent implements OnInit {
 
   messages: Message[];
-  timeDifference: number;
 
   tasks: Task[];
   notices: Task[];
@@ -38,9 +37,9 @@ export class HeaderComponent implements OnInit {
 
     this.messageService.getMessages(userId).subscribe(res => {
       this.messages = res;
-      for (let i = 0; i < this.messages.length; ++i) {
-        this.messages[i].timeStamp = Math.floor((new Date().getTime() - this.messages[i].timeStamp) / 60000);
-      }
+      // for (let i = 0; i < this.messages.length; ++i) {
+      //   this.messages[i].timeStamp = Math.floor((new Date().getTime() - this.messages[i].timeStamp) / 60000);
+      // }
     });
 
     this.taskService.getTasks(userId).subscribe(res => {
