@@ -22,7 +22,7 @@ export class ContentComponent implements OnInit {
     // 组件加载时无路由变化，故需手动初始化curLocation值
     switch (this.activatedRoute.firstChild.snapshot.component['name']) {
       case 'CommunityComponent': this.curLocation = '任务广场'; break;
-      case 'UserComponent': this.curLocation = '个人'; break;
+      case 'UserComponent': this.curLocation = '个人信息'; break;
     }
 
     // 订阅路由变化，更新curLocation

@@ -44,7 +44,7 @@ const routes: Routes = [
       {path: 'plans/:id', component: PlanDetailComponent}
     ]},
     {path: 'user', component: UserComponent, data: {
-      location: '个人'
+      location: '个人信息'
     }},
     {path: 'other', component: OtherComponent, children: [
       {path: 'feedback', component: FeedbackComponent, data: {
