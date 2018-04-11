@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
       if (res['status']) {
         this.router.navigateByUrl('/dashboard/community/plans');
         window.sessionStorage.setItem('usr', this.loginFormGroup.value.username);
-        window.location.reload();
+        // window.location.reload();
       } else {
         alert('账号或密码错误');
       }
