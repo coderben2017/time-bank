@@ -1,0 +1,22 @@
+.block-type, .block-place {
+  cursor: pointer;
+}
+.block-type:nth-child(1) {
+  background-color: #aaebd7;
+}
+.block-type:nth-child(2) {
+  background-color: #faebd7;
+}
+.block-type:nth-child(3) {
+  background-color: #7fff00;
+}
+.block-type:nth-child(4) {
+  background-color: #ff7f50;
+}
+.block-place:nth-child(1) {
+  background-color: #6495ed;
+}
+.block-place:nth-child(2) {
+  background-color: #ff00ff;
+}
+

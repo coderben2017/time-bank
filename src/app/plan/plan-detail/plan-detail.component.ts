@@ -18,12 +18,12 @@ export class PlanDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.plan = new Plan(0, '', 0, '', 0, 0);
+    this.plan = new Plan(0, '', 0, '', 0, 0, 0);
     this.time = null;
 
-    const url = window.location.href;
-    const x = url.search('plans');
-    const id = Number(url.slice(x + 6));
+    const url: string = window.location.href;
+    const x: number = url.search('plans');
+    const id: number = Number(url.slice(x + 6));
     this.planService.getPlan(id).subscribe(res => {
       this.plan = res;
       this.time = new Date(this.plan.timeStamp);
@@ -35,8 +35,15 @@ export class PlanDetailComponent implements OnInit {
   }
 
   takePlan(): void {
-    alert('接受任务成功');
-    this.goBack();
+    const person: string = sessionStorage.getItem('usr');
+    this.planService.takePlan(this.plan.id, person).subscribe(res => {
+      if (res['status']) {
+        alert('接受任务成功，完成任务则奖励到账。');
+      } else {
+        alert('接受任务失败，请重试。');
+      }
+      this.goBack();
+    });
   }
-
 }
+

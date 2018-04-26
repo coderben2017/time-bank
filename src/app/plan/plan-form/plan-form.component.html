@@ -1,10 +1,30 @@
-<form class="form-horizontal">
+<form class="form-horizontal" [formGroup]="planFormGroup">
   <div class="box-body">
     <div class="form-group">
-      <label for="inputContent3" class="col-sm-2 control-label">任务内容</label>
+      <label for="inputContent1" class="col-sm-2 control-label">任务类型</label>
+
+      <div class="col-sm-10" id="inputContent1">
+        <span class="col-sm-5 block-type" (click)="selectType('带饭', 0)">带饭</span>
+        <span class="col-sm-5 block-type" (click)="selectType('取快递', 1)">取快递</span>
+        <span class="col-sm-5 block-type" (click)="selectType('发快递', 2)">发快递</span>
+        <span class="col-sm-5 block-type" (click)="selectType('打热水', 3)">打热水</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="inputContent2" class="col-sm-2 control-label">任务类型</label>
+
+      <div class="col-sm-10" id="inputContent2">
+        <span class="col-sm-5 block-place" (click)="selectPlace('学15', 0)">学15</span>
+        <span class="col-sm-5 block-place" (click)="selectPlace('学14', 1)">学14</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="inputContent3" class="col-sm-2 control-label">任务酬劳</label>
 
       <div class="col-sm-10">
-        <textarea class="form-control" id="inputContent3" placeholder='在此输入内容智能识别（120字以内，格式："标题 地点 酬劳 手机号"）' rows="6" style="resize: none"></textarea>
+        <input class="form-control" id="inputContent3" type="number" step="1" formControlName="salary" placeholder="需大于0" />
       </div>
     </div>
 
@@ -12,7 +32,7 @@
       <label for="inputContent4" class="col-sm-2 control-label">任务时间</label>
 
       <div class="col-sm-10">
-        <input class="form-control" id="inputContent4" type="datetime-local" />
+        <input class="form-control" id="inputContent4" type="datetime-local" formControlName="time" />
       </div>
     </div>
   </div>

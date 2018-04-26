@@ -1,2 +1,26 @@
 <h4>期待您的反馈建议</h4>
-<p>邮箱：<a href="mailto:coderben2016@126.com">coderben2016@126.com</a></p>
+
+<form class="form-horizontal" [formGroup]="complaintForm">
+  <fieldset>
+    <legend class="text-center">投诉窗口</legend>
+    <p>
+      <span>违规情况简述：</span>
+      <textarea
+        rows="5"
+        maxlength="100"
+        placeholder="请输入不超过100字的内容。若内容过多请投诉至下方邮箱。"
+        formControlName="content"
+      ></textarea>
+    </p>
+    <p>
+      您的手机号（选填）：
+      <input type="number" placeholder="请输入您的手机号" formControlName="phoneNumber" />
+    </p>
+    <p>
+      <input type="submit" (click)="submitComplaint()" />
+    </p>
+  </fieldset>
+</form>
+
+<br />
+<p>其他问题/建议可发送至邮箱：<a href="mailto:coderben2016@126.com">coderben2016@126.com</a></p>

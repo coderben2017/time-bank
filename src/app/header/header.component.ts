@@ -33,7 +33,8 @@ export class HeaderComponent implements OnInit {
     this.year = 2018;
     this.month = 1;
 
-    const userId = sessionStorage.getItem('usr') === 'admin' ? 1 : 0;
+    const usr: string = sessionStorage.getItem('usr');
+    const userId: number = usr === 'admin' ? 1 : 0;
 
     this.messageService.getMessages(userId).subscribe(res => {
       this.messages = res;
@@ -49,7 +50,7 @@ export class HeaderComponent implements OnInit {
       this.notices = res;
     });
 
-    this.userInfoService.getUserInfo(userId).subscribe(res => {
+    this.userInfoService.getUserInfo(usr).subscribe(res => {
       this.userInfo = res;
       this.year = new Date(this.userInfo.timeStamp).getFullYear();
       this.month = new Date(this.userInfo.timeStamp).getMonth() + 1;

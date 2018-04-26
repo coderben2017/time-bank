@@ -9,13 +9,10 @@
     <!-- Home tab content -->
     <div class="tab-pane active" id="control-sidebar-home-tab">
       <ul class="control-sidebar-menu">
-        <li *ngFor="let task of tasks">
-          <a href="javascript:;">
+        <li *ngFor="let plan of takenPlans; index as i">
+          <a href="javascript:;" (click)="lookTakenPlan(plan.id)">
             <h4 class="control-sidebar-subheading">
-              {{task.content}}
-              <span class="pull-right-container">
-                    <span class="label label-danger pull-right">{{task.completeDegree + '%'}}</span>
-                  </span>
+              {{plan.name}}（{{datesOfTaken[i] | date: 'yyyy-M-d H:m'}}）
             </h4>
 
             <div class="progress progress-xxs">
@@ -34,13 +31,10 @@
     <!-- Settings tab content -->
     <div class="tab-pane" id="control-sidebar-settings-tab">
       <ul class="control-sidebar-menu">
-        <li *ngFor="let task of tasks">
-          <a href="javascript:;">
+        <li *ngFor="let plan of pushedPlans; index as i">
+          <a href="javascript:;" (click)="finishPushedPlan(plan.id)">
             <h4 class="control-sidebar-subheading">
-              {{task.content}}
-              <span class="pull-right-container">
-                    <span class="label label-danger pull-right">{{task.completeDegree + '%'}}</span>
-                  </span>
+              {{plan.name}}（{{datesOfPushed[i] | date: 'yyyy-M-d H:m'}}）
             </h4>
 
             <div class="progress progress-xxs">

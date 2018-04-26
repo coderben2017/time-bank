@@ -7,7 +7,7 @@ export class LoginService {
 
   constructor(private httpClient: HttpClient) { }
 
-  login(usr: string, psw: string): Observable<boolean> {
+  login(usr: string, psw: string): Observable<any> {
     return this.httpClient.post('/api/login', {
       'username': usr,
       'password': psw

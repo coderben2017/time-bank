@@ -5,6 +5,8 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class PlanService {
 
+  usr: string = sessionStorage.getItem('usr');
+
   constructor(private httpClient: HttpClient) { }
 
   getAllPlans(): Observable<Plan[]> {
@@ -15,15 +17,38 @@ export class PlanService {
     return this.httpClient.get(`/api/plan/${id}`);
   }
 
-  addPlan(text: string, timeStamp: number): Observable<any> {
+  addPlan(type: string, place: string, salary: number, timeStamp: number, pushPerson: string): Observable<any> {
     return this.httpClient.post('/api/plan/add', {
-      text: text,
-      timeStamp: timeStamp
+      type: type,
+      place: place,
+      salary: salary,
+      timeStamp: timeStamp,
+      pushPerson: pushPerson
+    });
+  }
+
+  takePlan(planId: number, usr: string): Observable<any> {
+    return this.httpClient.post('/api/plan/take', {
+      planId: planId,
+      usr: usr
+    });
+  }
+
+  getTakenPlans(): Observable<Plan[]> {
+    return this.httpClient.get(`/api/taken-plans/${this.usr}`);
+  }
+
+  getPushedPlans(): Observable<Plan[]> {
+    return this.httpClient.get(`/api/pushed-plans/${this.usr}`)
+  }
+
+  finishPlan(id: number): Observable<any> {
+    return this.httpClient.post(`/api/finish-plan`, {
+      id: id
     });
   }
 
 }
-
 
 
 export class Plan {
@@ -33,6 +58,8 @@ export class Plan {
     public timeStamp: number,
     public place: string,
     public salary: number,
-    public phoneNumber: number
+    public phoneNumber: number,
+    public isReceived: number,
+    public receivePersonId?: number
   ) {}
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Activity, ActivityService } from '../services/activity.service';
-import { Task, TaskService } from '../services/task.service';
+import { Router } from '@angular/router';
+import { Plan, PlanService } from '../services/plan.service';
 
 @Component({
   selector: 'app-sidebar-right',
@@ -9,24 +9,49 @@ import { Task, TaskService } from '../services/task.service';
 })
 export class SidebarRightComponent implements OnInit {
 
-  activities: Activity[];
-  tasks: Task[];
+  takenPlans: Plan[];
+  pushedPlans: Plan[];
+  datesOfTaken: Date[];
+  datesOfPushed: Date[];
 
-  constructor(private activityService: ActivityService, private taskService: TaskService) { }
+  constructor(
+    private planService: PlanService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
-    this.activities = [];
-    this.tasks = [];
+    this.datesOfTaken = [];
+    this.datesOfPushed = [];
 
-    const userId: number = sessionStorage.getItem('usr') === 'admin' ? 1 : 0;
-
-    this.activityService.getActivities().subscribe(res => {
-      this.activities = res;
+    this.planService.getTakenPlans().subscribe(res => {
+      this.takenPlans = res;
+      for (let i = 0; i < this.takenPlans.length; ++i) {
+        this.datesOfTaken.push(new Date(this.takenPlans[i].timeStamp));
+      }
     });
 
-    this.taskService.getTasks(userId).subscribe(res => {
-      this.tasks = res;
+    this.planService.getPushedPlans().subscribe(res => {
+      this.pushedPlans = res;
+      for (let i = 0; i < this.pushedPlans.length; ++i) {
+        this.datesOfPushed.push(new Date(this.pushedPlans[i].timeStamp));
+      }
     });
+  }
+
+  lookTakenPlan(id: number): void {
+    this.router.navigateByUrl(`/dashboard/community/plans/${id}`);
+  }
+
+  finishPushedPlan(id: number): void {
+    if (confirm(`该任务确定签收此任务吗？`)) {
+      this.planService.finishPlan(id).subscribe(res => {
+        if (res['status']) {
+          alert('任务签收成功！任务酬劳已到达对方账户。');
+        } else {
+          alert('任务签收失败，请重试。');
+        }
+      });
+    }
   }
 
 }

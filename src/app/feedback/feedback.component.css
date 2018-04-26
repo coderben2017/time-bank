@@ -1,7 +1,15 @@
 h4, p {
   text-align: center;
 }
-
 h4 {
   margin-bottom: 20px;
+}
+input {
+  width: 140px;
+}
+span {
+  vertical-align: top;
+}
+textarea {
+  width: 184px;
 }

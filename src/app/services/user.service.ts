@@ -8,11 +8,8 @@ export class UserService {
   constructor(private httpClient: HttpClient) { }
 
   getUser(): Observable<User> {
-    let id = 0;
-    if (sessionStorage.usr) {
-      id = 1;
-    }
-    return this.httpClient.get(`/api/user/${id}`);
+    const usr: string = sessionStorage.getItem('usr');
+    return this.httpClient.get(`/api/user/${usr}`);
   }
 
 }

@@ -30,7 +30,7 @@ import { MessageService } from './services/message.service';
 import { TaskService } from './services/task.service';
 import { UserInfoService } from './services/user-info.service';
 import { ActivityService } from './services/activity.service';
-
+import { ComplaintService } from './services/complaint.service';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -94,7 +94,8 @@ const routes: Routes = [
     MessageService,
     TaskService,
     UserInfoService,
-    ActivityService
+    ActivityService,
+    ComplaintService
   ],
   bootstrap: [AppComponent]
 })
