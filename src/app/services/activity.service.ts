@@ -8,7 +8,7 @@ export class ActivityService {
   constructor(private httpClient: HttpClient) { }
 
   getActivities(): Observable<Activity[]> {
-    return this.httpClient.get('/api/activities');
+    return this.httpClient.get<Activity[]>('/api/activities');
   }
 
 }

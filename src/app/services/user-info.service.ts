@@ -8,7 +8,7 @@ export class UserInfoService {
   constructor(private httpClient: HttpClient) { }
 
   getUserInfo(usr: string): Observable<UserInfo> {
-    return this.httpClient.get(`/api/userInfo/${usr}`);
+    return this.httpClient.get<UserInfo>(`/api/userInfo/${usr}`);
   }
 
 }

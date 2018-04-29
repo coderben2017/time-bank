@@ -8,13 +8,13 @@ export class TaskService {
   constructor(private httpClient: HttpClient) { }
 
   getTasks(userId: number): Observable<Task[]> {
-    return this.httpClient.get('/api/tasks', {
+    return this.httpClient.get<Task[]>('/api/tasks', {
       params: new HttpParams().append('userId', userId + '')
     });
   }
 
   getNotices(userId: number): Observable<Task[]> {
-    return this.httpClient.get('/api/tasks/notices', {
+    return this.httpClient.get<Task[]>('/api/tasks/notices', {
       params: new HttpParams().append('userId', userId + '')
     });
   }

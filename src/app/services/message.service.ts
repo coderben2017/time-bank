@@ -8,7 +8,7 @@ export class MessageService {
   constructor(private httpClient: HttpClient) { }
 
   getMessages(userId: number): Observable<Message[]> {
-    return this.httpClient.get('/api/messages', {
+    return this.httpClient.get<Message[]>('/api/messages', {
       params: new HttpParams().append('userId', userId + '')
     });
   }

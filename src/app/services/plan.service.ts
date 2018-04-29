@@ -10,11 +10,11 @@ export class PlanService {
   constructor(private httpClient: HttpClient) { }
 
   getAllPlans(): Observable<Plan[]> {
-    return this.httpClient.get('/api/plans');
+    return this.httpClient.get<Plan[]>('/api/plans');
   }
 
   getPlan(id: number): Observable<Plan> {
-    return this.httpClient.get(`/api/plan/${id}`);
+    return this.httpClient.get<Plan>(`/api/plan/${id}`);
   }
 
   addPlan(type: string, place: string, salary: number, timeStamp: number, pushPerson: string): Observable<any> {
@@ -35,11 +35,11 @@ export class PlanService {
   }
 
   getTakenPlans(): Observable<Plan[]> {
-    return this.httpClient.get(`/api/taken-plans/${this.usr}`);
+    return this.httpClient.get<Plan[]>(`/api/taken-plans/${this.usr}`);
   }
 
   getPushedPlans(): Observable<Plan[]> {
-    return this.httpClient.get(`/api/pushed-plans/${this.usr}`)
+    return this.httpClient.get<Plan[]>(`/api/pushed-plans/${this.usr}`)
   }
 
   finishPlan(id: number): Observable<any> {

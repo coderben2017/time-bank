@@ -9,7 +9,7 @@ export class UserService {
 
   getUser(): Observable<User> {
     const usr: string = sessionStorage.getItem('usr');
-    return this.httpClient.get(`/api/user/${usr}`);
+    return this.httpClient.get<User>(`/api/user/${usr}`);
   }
 
 }
